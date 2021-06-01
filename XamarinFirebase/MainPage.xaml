@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinFirebase.MainPage">
+
+    <StackLayout>
+        <StackLayout Padding="10">
+            <StackLayout HorizontalOptions="Center" VerticalOptions="Start">
+                <Label Text="BMI Realtime Database" FontAttributes="Bold" FontSize="Large" TextColor="Gray" HorizontalTextAlignment="Center" Margin="0, 20, 0, 10"></Label>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                    <Label Text="Vince Aaron Genodipa" FontAttributes="Bold" TextColor="Black"/>
+                    <Label Text="Romnick James Remolino" FontAttributes="Bold" TextColor="Black"/>
+                </StackLayout>
+                <Entry x:Name="txtId" Placeholder="ID"></Entry>
+                <Entry x:Name="txtName" Placeholder="Enter Name"></Entry>
+                <Entry x:Name="Weight" Placeholder="Weight (Kg)"></Entry>
+                <Entry x:Name="Height" Placeholder="Height (cm)"></Entry>
+                <StackLayout  HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                    <Button x:Name="btnAdd" WidthRequest="200" Text="Compute" Clicked="BtnAdd_Clicked"/>
+                </StackLayout>
+
+                <ListView x:Name="lstPersons" HasUnevenRows="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame>
+                                    <StackLayout Spacing="0">
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="{Binding PersonId}"/>
+                                            <Label Text="{Binding Name}"/>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="Weight (Kg):"/>
+                                            <Label Text="{Binding Weight}"/>
+                                            <Label Text="Height (cm):"/>
+                                            <Label Text="{Binding Height}"/>
+                                            <Label Text="BMI:"/>
+                                            <Label Text="{Binding BMI}"/>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="Status:"/>
+                                            <Label Text="{Binding Status}"/>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </StackLayout>
+    </StackLayout>
+
+</ContentPage>
